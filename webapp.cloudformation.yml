@@ -2,7 +2,7 @@
 Parameters:
   KeyName:
     Type: String
-    Default: nikolas
+    Default: rohan
   WebappSubnets:
     Type: CommaDelimitedList
     Default: subnet-063c705f, subnet-bd6155ca, subnet-fb2c209e
@@ -14,7 +14,7 @@ Parameters:
     Default: 1
   MaxSize:
     Type: Number
-    Default: 2
+    Default: 3
   VPC:
     Type: String
     Default: vpc-ff84de9a
@@ -50,6 +50,9 @@ Resources:
       VpcId:
         Ref: VPC
       SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '8080'
+        ToPort: '80'      
       - IpProtocol: tcp
         FromPort: '3000'
         ToPort: '3000'
